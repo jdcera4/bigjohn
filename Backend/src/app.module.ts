@@ -1,11 +1,28 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EmpleadosModule } from './empleados/empleados.module';
 import { OtrosModule } from './otros/otros.module';
 
 @Module({
-  imports: [EmpleadosModule, OtrosModule],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: 'Karibik.2022',
+      database: 'bigjohn',
+      entities: [join(__dirname, '../**/**/*entity{.ts,.js}')],
+      migrations: ['./migrations/*.js'],
+      synchronize: true,
+      autoLoadEntities: true,
+    }),
+    EmpleadosModule, 
+    OtrosModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

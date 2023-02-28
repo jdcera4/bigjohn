@@ -14,7 +14,7 @@ import { OtrosModule } from './otros/otros.module';
       port: 3306,
       username: 'root',
       password: 'Karibik.2022',
-      database: 'bigjohn',
+      database: 'bigjohn3',
       entities: [join(__dirname, '../**/**/*entity{.ts,.js}')],
       migrations: ['./migrations/*.js'],
       synchronize: true,

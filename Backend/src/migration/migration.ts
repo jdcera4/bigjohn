@@ -9,7 +9,7 @@ export class AddImageToUser implements MigrationInterface {
     }
     async down(queryRunner: QueryRunner): Promise<any> {
         await queryRunner.query(
-                'ALTER TABLE "user" DROP COLUMN image'
+                'ALTER TABLE "user" DROP COLUMN image', undefined
         );
     }
 }

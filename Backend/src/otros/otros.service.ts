@@ -13,16 +13,21 @@ export class OtrosService {
         private readonly otroRepository: Repository<Otro>
     ){}
 
-    async getMany(): Promise<Otro[]>{
-        return await this.otroRepository.find()
+    async getMany() {
+        const data =  await this.otroRepository.find()
+        return {
+            message: 'Ok',
+            data
+        }
     }
 
     getOne(id: number){
         return {Ok: 'getOne'}
     }
 
-    createOne(dto: CreateOtrosDto){
-        return {ok: 'createOne'}
+    async createOne(dto: CreateOtrosDto){
+        const otro = this.otroRepository.create(dto as any);
+        return await this.otroRepository.save(otro);
     }
 
     editOne(id: number, dto: EditOtrosDto){

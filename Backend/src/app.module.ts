@@ -5,6 +5,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EmpleadosModule } from './empleados/empleados.module';
 import { OtrosModule } from './otros/otros.module';
+import { ClockInitModule } from './clock-init/clock-init.module';
+import { ClockEndModule } from './clock-end/clock-end.module';
 
 @Module({
   imports: [
@@ -14,14 +16,16 @@ import { OtrosModule } from './otros/otros.module';
       port: 3306,
       username: 'root',
       password: 'Karibik.2022',
-      database: 'bigjohn3',
+      database: 'bigjohn6',
       entities: [join(__dirname, '../**/**/*entity{.ts,.js}')],
       migrations: ['./migrations/*.js'],
       synchronize: true,
       autoLoadEntities: true,
     }),
     EmpleadosModule, 
-    OtrosModule
+    OtrosModule, 
+    ClockInitModule,
+    ClockEndModule
   ],
   controllers: [AppController],
   providers: [AppService],

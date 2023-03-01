@@ -22,26 +22,29 @@ export class OtrosController {
         return this.otrosService.getMany();
     }
 
-    @Get(':id')
-    getById (@Param('id') id:number){
-        return this.otrosService.getOne(id);
+    @Get(':cedula')
+    async getById (@Param('cedula', ParseIntPipe) cedula:number){
+        const data = this.otrosService.getOne(cedula);
+        return data;
     }
 
     @Post()
     createEmpleado(@Body() dto: CreateOtrosDto){
+        console.log(dto);
         return this.otrosService.createOne(dto);
     }
 
-    @Put(':id')
+    @Put(':cedula')
     editOne(
-        @Param('id') id: number,
+        @Param('cedula') cedula: number,
         @Body() dto: EditOtrosDto
         ) {
-            return this.otrosService.editOne(id, dto);
+            return this.otrosService.editOne(cedula, dto);
         }
 
-    @Delete(':id')
-    delteOne(@Param('id') id: number){
+    @Delete(':cedula')
+    delteOne(@Param('cedula') cedula: number){
+        const data = this.otrosService.deleteOne(cedula);
         return {message: 'deleted'}
     }
 }

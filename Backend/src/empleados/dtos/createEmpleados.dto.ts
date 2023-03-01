@@ -3,12 +3,11 @@ import {
     IsNumber,   
   } from 'class-validator';
 
-export class CreateOtrosDto {
+export class CreateEmpleadoDto {
     @IsNumber()
     cedula: number;
     @IsString()
     name: string;
     @IsNumber()
-    type: number;
-
+    role: number;
 }

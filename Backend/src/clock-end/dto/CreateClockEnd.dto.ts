@@ -3,12 +3,7 @@ import {
     IsNumber,   
   } from 'class-validator';
 
-export class CreateOtrosDto {
+export class CreateClockEndDto {
     @IsNumber()
     cedula: number;
-    @IsString()
-    name: string;
-    @IsNumber()
-    type: number;
-
 }

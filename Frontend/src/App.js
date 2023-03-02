@@ -1,12 +1,22 @@
 import './App.css';
-import Form from './componets/Form';
+//import Pages
+import Form from './pages/Form';
+
+//Import components
+import Navbar from './components/navbar/navbar';
+
+
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Gestionar Empleados</h1>
-      <Form></Form>
-    </div>
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route exact path="/create-empleado" element={<Form/>}/>
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,6 +1,6 @@
 function Form() {
   return (
-    <form>
+    <form className="container">
         <div className="mb-3">
             <label for="exampleInputEmail1" className="form-label">Cedula</label>
             <input type="number" className="form-control" id="exampleInputCedula"  />

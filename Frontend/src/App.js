@@ -1,6 +1,8 @@
 import './App.css';
 //import Pages
 import Form from './pages/Form';
+import Income from './pages/createIncome';
+import Guests from './pages/guests';
 
 //Import components
 import Navbar from './components/navbar/navbar';
@@ -14,7 +16,9 @@ function App() {
     <Router>
       <Navbar/>
       <Routes>
-        <Route exact path="/create-empleado" element={<Form/>}/>
+        <Route exact path="/" element={<Form/>}/>
+        <Route exact path="/create-income" element={<Income/>}/>
+        <Route exact path="/guests" element={<Guests/>}/>
       </Routes>
     </Router>
   );

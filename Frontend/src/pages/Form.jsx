@@ -1,6 +1,26 @@
+import React, {useEffect, useState} from "react";
+import axios from 'axios';
+
 import Empleados from "../components/empleados/empleados";
 
 function Form() {
+
+    const [empleado, setEmpleado] = useState();
+
+    useEffect(() => {
+        axios({
+            url: 'http://localhost:3000/empleados/',
+            method: 'get',
+            mode: 'no-cors',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            withCredentials: false
+        }).then(res => res.son())
+    }, []);
+
   return (
     <div>
     <form className="container mb-5">

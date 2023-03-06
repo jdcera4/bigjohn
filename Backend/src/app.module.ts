@@ -16,7 +16,7 @@ import { ClockEndModule } from './clock-end/clock-end.module';
       port: 3306,
       username: 'root',
       password: 'Karibik.2022',
-      database: 'bigjohn7',
+      database: 'bigjohn8',
       entities: [join(__dirname, '../**/**/*entity{.ts,.js}')],
       migrations: ['./migrations/*.js'],
       synchronize: true,
